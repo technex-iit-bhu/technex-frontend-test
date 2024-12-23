@@ -7,7 +7,7 @@ import {
 } from "framer-motion";
 import { useRef, useState } from "react";
 
-export default function Hero({setLoadNext}) {
+export default function Hero({ setLoadNext }) {
   const heroRef = useRef(null);
   const containerRef = useRef(null);
   const linksRef = useRef(null);
@@ -19,11 +19,11 @@ export default function Hero({setLoadNext}) {
   const topProgress = useTransform(
     () => (1 - scrollYProgress.get()) * 50 + "vh"
   );
-  useMotionValueEvent(scrollYProgress,"change",(val)=>{
-    if(val>=0.5){
-      setLoadNext(true)
+  useMotionValueEvent(scrollYProgress, "change", (val) => {
+    if (val >= 0.5) {
+      setLoadNext(true);
     }
-  })
+  });
 
   return (
     <div className="w-screen h-screen relative top-0 left-0 overflow-y-scroll overflow-x-clip no-scrollbar snap-start snap-always">

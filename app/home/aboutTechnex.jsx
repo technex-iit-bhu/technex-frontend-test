@@ -6,9 +6,9 @@ import {
   useTransform,
   // useInView,
 } from "framer-motion";
-import { useEffect, useRef,useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export default function AboutTechnex({setLoadNext}) {
+export default function AboutTechnex({ setLoadNext }) {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     container: containerRef,
@@ -16,12 +16,12 @@ export default function AboutTechnex({setLoadNext}) {
 
   const leftProgress = useTransform(() => scrollYProgress.get() * 50 + "vw");
 
-    useMotionValueEvent(scrollYProgress,"change",(val)=>{
-      console.log(val)
-      if(val>=0.5){
-        setLoadNext(true)
-      }
-    })
+  useMotionValueEvent(scrollYProgress, "change", (val) => {
+    console.log(val);
+    if (val >= 0.5) {
+      setLoadNext(true);
+    }
+  });
 
   return (
     <div
